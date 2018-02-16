@@ -16,6 +16,10 @@ $(document).ready(function() {
 			var r = Math.floor(Math.random() * data.records.length);
 			if (data.info.totalrecords > 0){
 				result += "<img src=" + data.records[r].primaryimageurl + "></img>"; // put in image
+				result += "<h1>" + data.records[r].title + "</h1>";
+                if (data.records[r].period != null) {
+					result += "<h2>" + data.records[r].period + "</h2>";
+				}
 			}
             else { console.log("should repeat here"); }
 			$("#picture").html(result);
