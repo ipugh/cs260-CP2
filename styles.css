@@ -1,0 +1,17 @@
+footer p {
+	margin: 0px;
+	font-family: monospace;
+	font-size: 10px;
+}
+
+#picture {
+	margin-left:auto;
+	margin-right:auto;
+	width: 70%;
+}
+
+img {
+	height:auto;
+	width:100%;
+}
+

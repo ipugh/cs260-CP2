@@ -1,9 +1,9 @@
 $(document).ready(function() {
-    $("#searchSubmit").click(function(e) {//grab information from form
-	    e.preventDefault();
+    $("#searchSubmit, #picture").on('click', function(e) {//grab information from form
+		e.preventDefault();
         var result = "";
         var apiEndpointBaseURL = "https://api.harvardartmuseums.org/object";
-        
+		$("#searchSubmit").hide(); 
         var queryString = $.param({
             apikey: "7393e0d0-11c9-11e8-b6eb-2feb8ab9bc5e",
             title: "rabbit",
@@ -13,12 +13,12 @@ $(document).ready(function() {
         $.getJSON(apiEndpointBaseURL + "?" + queryString, function(data) {
             console.log("harvard stuff");
             console.log(data); 
-            if (data.info.totalrecords > 0){
-				var r = Math.floor(Math.random() * data.records.length);
+			var r = Math.floor(Math.random() * data.records.length);
+			if (data.info.totalrecords > 0){
 				result += "<img src=" + data.records[r].primaryimageurl + "></img>"; // put in image
 			}
             else { console.log("should repeat here"); }
-            $("#picture").html(result);
+			$("#picture").html(result);
             
         });
         $("#searchResults").html(result)
